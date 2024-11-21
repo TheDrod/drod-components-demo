@@ -1,7 +1,7 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodCarousel, generateRandomNumber } from "drod-components";
-  // import { generateRandomNumber } from "../../utils/generateRandomNumber.js";
+  import { DrodCarousel } from "drod-components";
+  import { generateRandomNumber } from "drod-components-utils";
 
   let items = [];
   for (let i = 0; i < 20; i++) {
