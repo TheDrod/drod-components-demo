@@ -1,6 +1,6 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodWYSIWYGEditor } from "drod-components-wysiwyg";
+  import { DrodWysiwygEditor } from "drod-components-wysiwyg";
   import { reactive } from "@vue/reactivity";
 
   const state = reactive({
@@ -16,16 +16,16 @@
 </script>
 
 <template>
-  <ComponentDocumentation :component="DrodWYSIWYGEditor">
+  <ComponentDocumentation :component="DrodWysiwygEditor">
     <template #example>
       <div class="dev-container">
-        <DrodWYSIWYGEditor
+        <DrodWysiwygEditor
           v-model="state.value"
           :extensions="state.extensions"
           :showActions="true"
           @save="onSave"
         />
-        <DrodWYSIWYGEditor
+        <DrodWysiwygEditor
           v-model="state.value2"
           :extensions="state.extensions2"
           :showActions="true"
@@ -44,8 +44,8 @@
     align-items: center;
     gap: 1rem;
 
-    .drod-rtext {
-      --drod-rtext-height: 100%;
+    .drod-wysiwyg {
+      --drod-wysiwyg-height: 100%;
     }
   }
 </style>

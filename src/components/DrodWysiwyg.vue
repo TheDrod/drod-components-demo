@@ -1,6 +1,6 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodWYSIWYG } from "drod-components-wysiwyg";
+  import { DrodWysiwyg } from "drod-components-wysiwyg";
   import { reactive } from "@vue/reactivity";
 
   const state = reactive({
@@ -13,10 +13,10 @@
 </script>
 
 <template>
-  <ComponentDocumentation :component="DrodWYSIWYG">
+  <ComponentDocumentation :component="DrodWysiwyg">
     <template #example>
       <div class="dev-container">
-        <DrodWYSIWYG
+        <DrodWysiwyg
           v-model="state.value"
           :allowEdit="true"
           @save="onSave"
@@ -33,8 +33,8 @@
     align-items: center;
     gap: 1rem;
 
-    .drod-rtext {
-      --drod-rtext-height: 100%;
+    .drod-wysiwyg {
+      --drod-wysiwyg-height: 100%;
     }
   }
 </style>

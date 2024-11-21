@@ -29,8 +29,8 @@
     align-items: center;
     gap: 1rem;
 
-    .drod-rtext {
-      --drod-rtext-height: 100%;
+    .drod-wysiwyg {
+      --drod-wysiwyg-height: 100%;
     }
   }
 </style>
