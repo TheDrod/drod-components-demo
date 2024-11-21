@@ -1,0 +1,180 @@
+@import "./colors.scss";
+
+body {
+  font-family: $app-font-family;
+  --app-font-family: $app-font-family;
+  font-size: $app-font-size;
+
+  margin: 0;
+
+  >* {
+    box-sizing: border-box;
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.75rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+}
+
+/* Scroll */
+*::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scroll-color-500);
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-color-400);
+}
+
+.drod-scroll-container {
+  overflow-y: overlay;
+  mask-image: linear-gradient(to top, transparent, black),
+    linear-gradient(to left, transparent 0.6rem, black 0.6rem);
+  mask-size: 100% 20000px;
+  mask-position: left bottom;
+  -webkit-mask-image: linear-gradient(to top, transparent, black),
+    linear-gradient(to left, transparent 0.6rem, black 0.6rem);
+  -webkit-mask-size: 100% 20000px;
+  -webkit-mask-position: left bottom;
+  // transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+
+  &:hover {
+    -webkit-mask-position: left top;
+  }
+}
+
+/** COLORS **/
+@import "./colors.scss";
+
+body {
+  $colours: (
+    "primary-color-300": $primary-color-300,
+    "primary-color-400": $primary-color-400,
+    "primary-color-500": $primary-color-500,
+    "primary-color-600": $primary-color-600,
+    "scroll-color-500": $scroll-color-500,
+    "scroll-color-400": $scroll-color-400,
+    "primary-color-font-color-500": $primary-color-font-color-500,
+    "primary-color-font-color-400": $primary-color-font-color-400,
+    "color-info": $color-info,
+    "color-danger": $color-danger,
+    "color-warning": $color-warning,
+    "color-success": $color-success,
+  );
+
+@each $key,
+$value in $colours {
+  --#{$key}: #{$value};
+}
+
+&.dark {
+  $colours: (
+    "bg-color-500": $dark-bg-500,
+    "bg-color-400": $dark-bg-400,
+    "bg-color-300": $dark-bg-300,
+    "bg-color-500--glass-500": $dark-bg-500--glass,
+    "bg-color-400--glass-500": $dark-bg-400--glass,
+    "font-color-500": $dark-font-color-500,
+    "font-color-400": $dark-font-color-400,
+    "font-contrast-color": $dark-bg-500,
+    "border-color-500": $dark-border-color-500,
+    "border-color-400": $dark-border-color-400,
+    "contrast-bg-color-500": $light-bg-500,
+    "contrast-font-color-500": $light-font-color-500,
+    "contrast-border-color-500": $light-border-color-500,
+  );
+
+@each $key,
+$value in $colours {
+  --#{$key}: #{$value};
+}
+}
+
+&.light {
+  $colours: (
+    "bg-color-500": $light-bg-500,
+    "bg-color-400": $light-bg-400,
+    "bg-color-300": $light-bg-300,
+    "bg-color-500--glass-500": $light-bg-500--glass-500,
+    "bg-color-400--glass-500": $light-bg-400--glass-500,
+    "font-color-500": $light-font-color-500,
+    "font-color-400": $light-font-color-400,
+    "font-contrast-color": $light-bg-500,
+    "border-color-500": $light-border-color-500,
+    "border-color-400": $light-border-color-400,
+    "contrast-bg-color-500": $dark-bg-500,
+    "contrast-font-color-500": $dark-font-color-500,
+    "contrast-border-color-500": $dark-border-color-500,
+  );
+
+@each $key,
+$value in $colours {
+  --#{$key}: #{$value};
+}
+}
+}
+
+/** END COLORS **/
+
+/** Shadow **/
+body {
+  --scroll-shadows-bg-color: #fff;
+
+  .scroll-shadows {
+    overflow: auto;
+    background-repeat: no-repeat;
+    background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+    background-attachment: local, local, scroll, scroll;
+
+    background:
+      /* Shadow Cover TOP */
+      linear-gradient(var(--scroll-shadows-bg-color) 30%, rgba(255, 255, 255, 0)) center top,
+      /* Shadow Cover BOTTOM */
+      linear-gradient(rgba(255, 255, 255, 0), var(--scroll-shadows-bg-color) 70%) center bottom,
+      /* Shadow TOP */
+      radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) center top,
+      /* Shadow BOTTOM */
+      radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) center bottom;
+  }
+
+  &.dark {
+    .scroll-shadows {
+      background:
+        linear-gradient(var(--bg-color-500) 30%, rgba(255, 255, 255, 0)) center top,
+        linear-gradient(rgba(255, 255, 255, 0), var(--bg-color-500) 70%) center bottom,
+        radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)) center top,
+        radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)) center bottom;
+    }
+  }
+}
+
+/** END Shadow **/

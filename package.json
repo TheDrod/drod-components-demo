@@ -1,0 +1,26 @@
+{
+  "name": "drod-components--dev",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "update": "npx ncu && npx npm-check-updates -u && npm install && npm audit fix",
+    "link-dc": "npm uninstall drod-components && npm link drod-components",
+    "unlink-dc": "npm unlink --no-save drod-components && npm install drod-components"
+  },
+  "dependencies": {
+    "drod-components-markdown": "^0.0.1",
+    "drod-components-wysiwyg": "^0.0.1",
+    "sass": "^1.79.5",
+    "sass-loader": "^16.0.2",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.8",
+    "vue-tsc": "^2.1.6"
+  }
+}
