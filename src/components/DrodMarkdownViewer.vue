@@ -1,6 +1,6 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodMarkdownViewer } from "drod-components";
+  import { DrodMarkdownViewer } from "drod-components-markdown";
 
   const value = "# MarkdownViewer<br>***Italic Bold***";
 </script>

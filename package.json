@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "update": "npx ncu && npx npm-check-updates -u && npm install && npm audit fix",
+    "update": "npx npm-check-updates -u && npm install && npm audit fix",
     "link-dc": "npm uninstall drod-components && npm link drod-components",
     "unlink-dc": "npm unlink --no-save drod-components && npm install drod-components"
   },

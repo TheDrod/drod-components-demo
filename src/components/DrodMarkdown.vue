@@ -1,6 +1,6 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodMarkdown } from "drod-components";
+  import { DrodMarkdown } from "drod-components-markdown";
 
   const onClick = (id) => {
     console.log(`clicked`);
