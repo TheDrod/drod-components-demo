@@ -38,7 +38,7 @@
           title="DrodCarousel"
           :items="images"
           :showGallery="false"
-          :wrapAround="false"
+          :wrapAround="true"
         />
         <br />
         <br />

@@ -1,6 +1,6 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodWYSIWYViewer } from "drod-components";
+  import { DrodWYSIWYViewer } from "drod-components-wysiwyg";
   import { reactive } from "@vue/reactivity";
 
   const state = reactive({

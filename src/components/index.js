@@ -51,7 +51,7 @@ const components = [
   { name: "DrodTooltip", url: "tooltip" },
   { name: "DrodVerticalSpacing", url: "vertical-spacing" },
   { name: "DrodVideo", url: "video" },
-  { name: "DrodVideoGif", url: "gif-player" },
+  { name: "DrodVideoGif", url: "video-gif" },
   { name: "DrodVideoScrubbable", url: "video-scrubbable" },
   { name: "DrodVideoSplitter", url: "video-splitter" },
   { name: "DrodYoutube", url: "video-youtube" },
