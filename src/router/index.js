@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { DrodFallbackPage } from "drod-components";
 
 import components from "../components/index.js";
 
@@ -25,13 +24,6 @@ const router = createRouter({
         path: `/components/${c.url}`,
         component: () => import(`../components/${c.name}.vue`),
       })),
-    },
-    {
-      path: "/:pathMatch(.*)*",
-      component: DrodFallbackPage,
-      meta: {
-        hidden: true,
-      },
     },
   ],
 });

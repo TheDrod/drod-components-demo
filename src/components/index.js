@@ -11,7 +11,6 @@ const components = [
   { name: "DrodCarouselSlider", url: "carousel-slider" },
   { name: "DrodCheckbox", url: "checkbox" },
   { name: "DrodDropdown", url: "dropdown" },
-  { name: "DrodFallbackPage", url: "fallback-page" },
   { name: "DrodFloatingMenu", url: "floating-menu" },
   { name: "DrodIcon", url: "icon" },
   { name: "DrodIframe", url: "iframe" },
