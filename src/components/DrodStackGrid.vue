@@ -1,6 +1,6 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodStackGrid, DrodStackGridItem } from "drod-components";
+  import { DrodStackGrid } from "drod-components";
   import { ref } from "vue";
 </script>
 
@@ -15,24 +15,12 @@
           <div class="card card-medium"></div>
           <div class="card card-large"></div> -->
         <DrodStackGrid :columnMinWidth="200">
-          <DrodStackGridItem>
-            <div class="card card-small"></div>
-          </DrodStackGridItem>
-          <DrodStackGridItem>
-            <div class="card card-medium"></div>
-          </DrodStackGridItem>
-          <DrodStackGridItem>
-            <div class="card card-large"></div>
-          </DrodStackGridItem>
-          <DrodStackGridItem>
-            <div class="card card-small"></div>
-          </DrodStackGridItem>
-          <DrodStackGridItem>
-            <div class="card card-medium"></div>
-          </DrodStackGridItem>
-          <DrodStackGridItem>
-            <div class="card card-large"></div>
-          </DrodStackGridItem>
+          <div class="card card-small"></div>
+          <div class="card card-medium"></div>
+          <div class="card card-large"></div>
+          <div class="card card-small"></div>
+          <div class="card card-medium"></div>
+          <div class="card card-large"></div>
         </DrodStackGrid>
       </div>
     </template>
