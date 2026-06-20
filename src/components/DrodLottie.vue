@@ -1,13 +1,11 @@
-<!-- <script setup>
+<script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
   import { DrodLottie } from "drod-components";
-  import SuccessJSON from "../../assets/lotties/success.json";
-
-  cosnt component = DrodLottie
+  import SuccessJSON from "../assets/lotties/success.json";
 </script>
 
 <template>
-  <ComponentDocumentation :component="component">
+  <ComponentDocumentation :component="DrodLottie">
     <template #example>
       <div class="dev-container">
         <DrodLottie
@@ -19,9 +17,14 @@
   </ComponentDocumentation>
 </template>
 
-<style lang="scss">
-  .drod-lottie {
-    --drod-lottie-width: 100px;
-    --drod-lottie-height: 100px;
+<style lang="scss" scoped>
+  .dev-container {
+    display: flex;
+    justify-content: center;
   }
-</style> -->
+
+  :deep(.drod-lottie) {
+    --drod-lottie-width: 160px;
+    --drod-lottie-height: 160px;
+  }
+</style>

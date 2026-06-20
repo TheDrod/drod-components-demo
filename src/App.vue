@@ -1,14 +1,15 @@
 <script setup>
-  import { onMounted } from "vue";
-
-  onMounted(async () => {
-    const storedTheme = localStorage.getItem("theme");
-    document.body.classList.add(storedTheme ?? "dark");
-  });
+  import AppHeader from "./components/AppHeader.vue";
 </script>
 
 <template>
-  <router-view />
+  <div class="app-shell">
+    <AppHeader />
+
+    <main class="app-body">
+      <router-view />
+    </main>
+  </div>
 </template>
 
 <style lang="scss">
@@ -18,5 +19,18 @@
 
   body {
     background: var(--bg-color-500);
+  }
+
+  .app-shell {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-body {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    color: var(--font-color-500);
   }
 </style>

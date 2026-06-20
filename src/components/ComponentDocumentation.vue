@@ -124,7 +124,9 @@
 
     <section class="example-container">
       <h2>Example</h2>
-      <slot name="example" />
+      <div class="example-surface">
+        <slot name="example" />
+      </div>
     </section>
 
     <section
@@ -132,26 +134,39 @@
       v-if="merged.props"
     >
       <h2>Props</h2>
-      <div
-        class="prop"
-        v-for="(propInfo, propName) in merged.props"
-        :key="propName"
-      >
-        <h4 class="name required">{{ propName }}</h4>
-        <div class="content">
-          <div class="labels">
-            <div class="type">Type</div>
-            <div class="default">Default</div>
-            <div class="required">Required</div>
-            <div class="description">Description</div>
-          </div>
-          <div class="proprow">
-            <div class="type">{{ propInfo.type }}</div>
-            <div class="default">{{ propInfo.default }}</div>
-            <div class="required">{{ propInfo.required }}</div>
-            <div class="description">{{ propInfo.description }}</div>
-          </div>
-        </div>
+      <div class="props-table-wrapper">
+        <table class="props-table">
+          <thead>
+            <tr>
+              <th>Prop</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Required</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(propInfo, propName) in merged.props"
+              :key="propName"
+            >
+              <td class="prop-name">{{ propName }}</td>
+              <td class="prop-type">{{ propInfo.type }}</td>
+              <td class="prop-default">{{ propInfo.default }}</td>
+              <td class="prop-required">
+                <span
+                  v-if="propInfo.required"
+                  class="badge badge--required"
+                >required</span>
+                <span
+                  v-else
+                  class="badge badge--optional"
+                >optional</span>
+              </td>
+              <td class="prop-note">{{ propInfo.note }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -176,12 +191,138 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1rem;
     color: var(--font-color-500, #000);
+
+    > .title {
+      margin: 0;
+      font-size: 2.25rem;
+    }
 
     > .content {
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 0.4em;
+    }
+
+    // Section labels (Example / Props / Emits) read as smaller headings under
+    // the component title rather than competing with it at the global h2 size.
+    .example-container > h2,
+    .props-container > h2,
+    .emits-container > h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.65;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border-color-500, rgba(127, 127, 127, 0.25));
+    }
+
+    .example-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .props-table-wrapper {
+      overflow-x: auto;
+    }
+
+    .props-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+
+      th {
+        text-align: left;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        opacity: 0.6;
+        border-bottom: 1px solid var(--border-color-500, rgba(127, 127, 127, 0.25));
+        white-space: nowrap;
+      }
+
+      td {
+        padding: 0.55rem 0.75rem;
+        border-bottom: 1px solid var(--border-color-500, rgba(127, 127, 127, 0.1));
+        vertical-align: middle;
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      tbody tr:hover td {
+        background: hsl(0 0% 50% / 0.05);
+      }
+
+      .prop-name,
+      .prop-type,
+      .prop-default {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.85rem;
+      }
+
+      .prop-name {
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .prop-type {
+        color: var(--primary-color-500);
+        white-space: nowrap;
+      }
+
+      .prop-default {
+        opacity: 0.75;
+      }
+
+      .prop-note {
+        opacity: 0.75;
+        min-width: 8rem;
+      }
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+
+      &--required {
+        background: rgba(61, 179, 122, 0.18);
+        color: var(--primary-color-500, #3db37a);
+      }
+
+      &--optional {
+        background: hsl(0 0% 50% / 0.12);
+        opacity: 0.65;
+      }
+    }
+
+    // Shared, consistent surface for every demo's example so they all look uniform
+    // instead of each demo file styling its own ad-hoc container.
+    .example-surface {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      min-height: 200px;
+      padding: 2rem;
+      border: 1px solid rgba(127, 127, 127, 0.18);
+      border-radius: 14px;
+      background: rgba(127, 127, 127, 0.06);
     }
   }
 </style>

@@ -5,7 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 
 // import DrodComponents from "./plugins/drod-components.ts";
-import "../node_modules/drod-components/dist/style.css";
+import "../node_modules/drod-components/dist/drod-components.css";
 
 createApp(App)
   .use(router)
