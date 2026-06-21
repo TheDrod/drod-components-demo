@@ -1,9 +1,14 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodMap, DrodMapItem } from "drod-components";
+  import { DrodMap, DrodMapItem, createNotification } from "drod-components";
 
   const onClick = (id) => {
-    console.log(`${id} clicked`);
+    createNotification({
+      title: `${id} clicked`,
+      message: `You clicked the "${id}" area of the map.`,
+      type: "info",
+      position: "bottom-right",
+    });
   };
 </script>
 

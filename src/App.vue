@@ -1,5 +1,6 @@
 <script setup>
   import AppHeader from "./components/AppHeader.vue";
+  import { DrodNotification } from "drod-components";
 </script>
 
 <template>
@@ -9,6 +10,8 @@
     <main class="app-body">
       <router-view />
     </main>
+
+    <DrodNotification />
   </div>
 </template>
 

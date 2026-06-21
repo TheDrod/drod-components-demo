@@ -5,6 +5,9 @@
 
   const value1 = ref(true);
   const value2 = ref(false);
+  const sm = ref(true);
+  const md = ref(true);
+  const lg = ref(true);
 
   const onClick = (value) => {
     console.log(`${value} clicked`);
@@ -25,6 +28,10 @@
           rightIcon="dark-theme"
           @change="onClick"
         />
+
+        <DrodSwitch v-model="sm" size="sm" />
+        <DrodSwitch v-model="md" size="md" />
+        <DrodSwitch v-model="lg" size="lg" />
       </div>
     </template>
   </ComponentDocumentation>
@@ -33,6 +40,8 @@
 <style lang="scss" scoped>
   .dev-container {
     display: flex;
+    align-items: center;
     justify-content: center;
+    gap: 1.5rem;
   }
 </style>

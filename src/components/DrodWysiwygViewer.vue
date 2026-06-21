@@ -1,6 +1,6 @@
 <script setup>
   import ComponentDocumentation from "./ComponentDocumentation.vue";
-  import { DrodWYSIWYViewer } from "drod-components-wysiwyg";
+  import { DrodWysiwygViewer } from "drod-components-wysiwyg";
   import { reactive } from "@vue/reactivity";
 
   const state = reactive({
@@ -13,10 +13,10 @@
 </script>
 
 <template>
-  <ComponentDocumentation :component="DrodWYSIWYViewer">
+  <ComponentDocumentation :component="DrodWysiwygViewer">
     <template #example>
       <div class="dev-container">
-        <DrodWYSIWYViewer :value="state.value" />
+        <DrodWysiwygViewer :value="state.value" />
       </div>
     </template>
   </ComponentDocumentation>

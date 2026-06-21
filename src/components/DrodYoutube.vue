@@ -12,14 +12,14 @@
     <template #example>
       <div class="dev-container">
         <DrodYoutube
-          src="hk1o2KMC3Ns"
+          videoId="hk1o2KMC3Ns"
           :timestamp="2"
           :loop="true"
           :loopTimeout="5000"
           @ready="onLoad"
         />
         <DrodYoutube
-          src="PrkCYd7XkGc"
+          videoId="PrkCYd7XkGc"
           :mute="true"
           :autoplay="false"
           :showControls="true"

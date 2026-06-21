@@ -134,6 +134,41 @@ $value in $colours {
 }
 }
 
+/** SEMANTIC ALIAS LAYER (Vuetify-style) — mirrors drod-components/src/styles/_base.scss **/
+body {
+  --primary: var(--primary-color-500);
+  --primary-variant: var(--primary-color-400);
+  --primary-emphasis: var(--primary-color-300);
+  --on-primary: var(--primary-color-font-color-500);
+
+  --surface: var(--bg-color-500);
+  --surface-variant: var(--bg-color-400);
+  --surface-dim: var(--bg-color-300);
+  --surface-glass: var(--bg-color-500--glass-500);
+  --on-surface: var(--font-color-500);
+  --on-surface-variant: var(--font-color-400);
+
+  --outline: var(--border-color-500);
+  --outline-variant: var(--border-color-400);
+
+  --info: var(--color-info);
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --error: var(--color-danger);
+  --on-info: #fff;
+  --on-success: #fff;
+  --on-warning: #fff;
+  --on-error: #fff;
+
+  --inverse-surface: var(--contrast-bg-color-500);
+  --inverse-on-surface: var(--contrast-font-color-500);
+
+  --overlay: rgba(0, 0, 0, 0.5);
+  --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.18);
+  --elevation-2: 0 3px 8px rgba(0, 0, 0, 0.2);
+  --elevation-3: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
 /** END COLORS **/
 
 /** Shadow **/

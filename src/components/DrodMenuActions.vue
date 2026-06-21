@@ -13,19 +13,24 @@
       <div class="dev-container">
         <DrodMenuActions>
           <DrodMenuActionsItem
-            icon="edit"
-            type="edit"
+            icon="mdi:pencil"
+            tooltip="Edit"
             @click="onClick('edit')"
           />
           <DrodMenuActionsItem
-            icon="delete"
-            type="delete"
+            icon="mdi:delete"
+            tooltip="Delete"
             @click="onClick('delete')"
           />
           <DrodMenuActionsItem
-            icon="locked"
-            type="locked"
+            icon="mdi:lock"
+            tooltip="Lock"
             @click="onClick('locked')"
+          />
+          <DrodMenuActionsItem
+            icon="mdi:share-variant"
+            tooltip="Share"
+            @click="onClick('share')"
           />
         </DrodMenuActions>
       </div>

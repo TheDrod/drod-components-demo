@@ -6,7 +6,7 @@
   import { computed, onMounted, ref, watch } from "vue";
   import { useRoute } from "vue-router";
 
-  import components from "../components/index.js";
+  import components, { groupOrder } from "../components/index.js";
   import { sidebarState } from "../stores/sidebar.js";
 
   const route = useRoute();
@@ -46,6 +46,24 @@
     if (!query) return components;
     return components.filter((component) => component.name.toLowerCase().includes(query));
   });
+
+  // Group the (filtered) components by their `group`, preserving groupOrder.
+  const groupedComponents = computed(() => {
+    const byGroup = new Map();
+    for (const component of filteredComponents.value) {
+      const group = component.group || "Extra";
+      if (!byGroup.has(group)) byGroup.set(group, []);
+      byGroup.get(group).push(component);
+    }
+
+    const ordered = groupOrder.filter((label) => byGroup.has(label));
+    // Append any groups not listed in groupOrder (safety net).
+    for (const label of byGroup.keys()) {
+      if (!ordered.includes(label)) ordered.push(label);
+    }
+
+    return ordered.map((label) => ({ label, items: byGroup.get(label) }));
+  });
 </script>
 
 <template>
@@ -70,14 +88,25 @@
       </template>
 
       <template #list>
-        <DrodSidebarItem
-          v-for="(component, index) in filteredComponents"
-          :key="index"
-          icon="vue"
-          :title="component.name"
-          :to="`/components/${component.url}`"
-          :active="route.path === `/components/${component.url}`"
-        />
+        <template
+          v-for="group in groupedComponents"
+          :key="group.label"
+        >
+          <div
+            class="sidebar-group-label"
+            :class="{ 'sidebar-group-label--hidden': sidebarState.collapsed }"
+          >
+            {{ group.label }}
+          </div>
+          <DrodSidebarItem
+            v-for="component in group.items"
+            :key="component.url"
+            icon="vue"
+            :title="component.name"
+            :to="`/components/${component.url}`"
+            :active="route.path === `/components/${component.url}`"
+          />
+        </template>
         <p
           v-if="!filteredComponents.length"
           class="no-results"
@@ -118,6 +147,26 @@
       &:focus {
         outline: none;
         border-color: rgba(127, 127, 127, 0.5);
+      }
+    }
+
+    .sidebar-group-label {
+      padding: 0.75rem 0.6rem 0.25rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant, rgba(127, 127, 127, 0.9));
+      opacity: 0.75;
+      white-space: nowrap;
+      overflow: hidden;
+
+      &:first-child {
+        padding-top: 0.25rem;
+      }
+
+      &--hidden {
+        display: none;
       }
     }
 
